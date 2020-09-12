@@ -65,14 +65,12 @@ class DecodeLang:
     # digits are ordered from the least significant to the most significant, which is the opposite of
     # our system. That is, the leftmost digit is the unit, the second digit is worth 20, the third one is
     # worth 400, and so on and so forth.
-    # value starts at 1, getting the position from character and multiply starting with value (1) after multiply the value by (x20)
     def word_to_number(self, word):
         number = 0
         value = 1
         try: 
             for char in word:
                 number += self.alphabet_ordered.index(char) * value
-                #print(char, number, str(self.alphabet_ordered.index(char)) + " * "+ str(value))
                 value *= 20
             return number
         
